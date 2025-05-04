@@ -1,10 +1,14 @@
 import Movie from "./Movie";
 
-export default function MovieList({ movies }) {
+export default function MovieList({ movies, handleSelectedMovie }) {
   return (
-    <ul className="list">
+    <ul className="list list-movies">
       {movies?.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} />
+        <Movie
+          movie={movie}
+          handleSelectedMovie={handleSelectedMovie}
+          key={movie.imdbID}
+        />
       ))}
     </ul>
   );
