@@ -3,6 +3,7 @@ import { KEY } from "../config";
 
 import StarRating from "../components/StarRating";
 import Loader from "./Loader";
+import useKey from "../useKey";
 
 export default function MovieDetails({
   selectedId,
@@ -53,8 +54,8 @@ export default function MovieDetails({
   //   [imdbRating]
   // );
 
-  const isTop = imdbRating > 8;
-  console.log(isTop);
+  // const isTop = imdbRating > 8;
+  // console.log(isTop);
 
   // const [avgRating, setAvgRating] = useState(0);
 
@@ -77,21 +78,7 @@ export default function MovieDetails({
     // setAvgRating((avgRating) => (avgRating + userRating) / 2);
   }
 
-  useEffect(
-    function () {
-      function callback(e) {
-        if (e.code === "Escape") {
-          onCloseMovie();
-        }
-      }
-      document.addEventListener("keydown", callback);
-
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
-    },
-    [onCloseMovie]
-  );
+  useKey("Escape", onCloseMovie);
 
   useEffect(
     function () {

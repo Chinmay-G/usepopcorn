@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-import { NavBar } from "./components/NavBar";
-import { Main } from "./components/Main";
-import Search from "./components/Search";
-import NumResults from "./components/NumResults";
+import { NavBar } from "./NavBar";
+import { Main } from "./Main";
+import Search from "./Search";
+import NumResults from "./NumResults";
 
 import Box from "./components/Box";
-import WatchedSummary from "./components/WatchedSummary";
-import WatchedMoviesList from "./components/WatchedMoviesList";
-import MovieList from "./components/MovieList";
+import WatchedSummary from "./WatchedSummary";
+import WatchedMoviesList from "./WatchedMoviesList";
+import MovieList from "./MovieList";
 import MovieDetails from "./components/MovieDetails";
 
 import Loader from "./components/Loader";
@@ -34,6 +34,7 @@ export default function App() {
 
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
+    // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
   }
 
   function handleDeleteWatched(id) {
@@ -49,6 +50,7 @@ export default function App() {
       </NavBar>
       <Main>
         <Box>
+          {/* {isLoading ? <Loader /> : <MovieList movies={movies} />} */}
           {!isLoading && !error && (
             <MovieList
               movies={movies}
