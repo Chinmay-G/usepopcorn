@@ -55,6 +55,9 @@ body {
   background-color: var(--color-background-500);
   border-radius: 0.9rem;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-background-900) var(--color-background-500);
+  scroll-behavior: smooth;
   position: relative;
 }
 
